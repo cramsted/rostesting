@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="serial" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\cmake\Modules\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/gary/serial/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/gary/serial/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="serial">
+         <Option output="/home/gary/serial/build/serial" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/gary/serial/build" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/gary/catkin_ws/devel/include" />
+            <Add directory="/home/gary/serial/include" />
+            <Add directory="/opt/ros/indigo/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/4.7" />
+            <Add directory="/usr/include/c++/4.7/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.7/." />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.7/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.7/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 serial" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="serial/fast">
+         <Option output="/home/gary/serial/build/serial" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/gary/serial/build" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/gary/catkin_ws/devel/include" />
+            <Add directory="/home/gary/serial/include" />
+            <Add directory="/opt/ros/indigo/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/4.7" />
+            <Add directory="/usr/include/c++/4.7/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/4.7/." />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.7/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.7/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 serial/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/gary/serial/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/gary/serial/conn_interface.cpp">
+      </Unit>
+      <Unit filename="/home/gary/serial/conn_serial.cpp">
+      </Unit>
+      <Unit filename="/home/gary/serial/main.cpp">
+      </Unit>
+      <Unit filename="/home/gary/serial/psoc.cpp">
+      </Unit>
+      <Unit filename="/home/gary/serial/include/conn_interface.h">
+      </Unit>
+      <Unit filename="/home/gary/serial/include/conn_msgbuffer.h">
+      </Unit>
+      <Unit filename="/home/gary/serial/include/conn_serial.h">
+      </Unit>
+      <Unit filename="/home/gary/serial/include/psoc.h">
+      </Unit>
+      <Unit filename="/home/gary/serial/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/gary/serial/cmake/Modules/EnableCXX11.cmake">
+          <Option virtualFolder="CMake Files\cmake\Modules\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>
