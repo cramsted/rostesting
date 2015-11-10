@@ -2,7 +2,6 @@
 #include <ros/ros.h>
 #include "psoc.h"
 #include "conn_interface.h"
-#include "psoc_driver.msg/Drive.h"
 
 using namespace psoc;
 using namespace conn;
@@ -51,23 +50,28 @@ void Psoc::receive(const uint8_t *bytes, ssize_t nbytes)
    // data_publisher_.publish(result);
 }
 
-void Psoc::send(std::string command)
+// void Psoc::send(std::string command)
+// {
+//     const char* data = command.c_str();
+//     size_t length = command.length();
+//     link->send_bytes((uint8_t*)data, length);
+// }
+
+void Psoc::send(uint8_t lwlo, uint8_t lwhi, uint8_t rwlo, uint8_t rwhi, uint8_t panlo, uint8_t panhi, uint8_t tiltlo, uint8_t tilthi, uint8_t camnum)
 {
-    const char* data = command.c_str();
-    size_t length = command.length();
-    link->send_bytes((uint8_t*)data, length);
+
 }
 
 void Psoc::terminate_cb() 
 {
 }
 
-void Psoc::commandCallback(const std_msgs::String &command_msg)
-{
-    this->send(command_msg.data);
-}
+// void Psoc::commandCallback(const std_msgs::String &command_msg)
+// {
+//     this->send(command_msg.data);
+// }
 
-void Psoc::commandCallback_2(const std_msgs::Drive &command_msg)
+void Psoc::commandCallback_2(const psoc_driver::Drive_2 &command_msg)
 {
-  this->send(command_msg.lwlo&0xff,(command_msg.lwhi>>8)&0xff,command_msg.rwlo&function0xff,(command_msg.rwhi>>8)&0xff,command_msg.panlo&function0xff,(command_msg.panhi>>8)&0xff,command_msg.tiltlo&0xff,(command_msg.tilthi>>8)&0xff,command_msg.camnum);
+  this->send(command_msg.lw&0xff,(command_msg.lw>>8)&0xff,command_msg.rw&0xff,(command_msg.rw>>8)&0xff,command_msg.pan&0xff,(command_msg.pan>>8)&0xff,command_msg.tilt&0xff,(command_msg.tilt>>8)&0xff,command_msg.camnum);
 }

@@ -7,14 +7,17 @@ project(psoc_driver)
 find_package(catkin REQUIRED COMPONENTS
   std_msgs
   roscpp
+  rospy
   message_generation
 )
 
-add_message_files(FILE Drive.msg)
 
 find_package(Boost REQUIRED COMPONENTS system)
 find_package(Threads)
-find_package(message_generation)
+
+add_message_files(FILES Drive.msg Drive_2.msg)
+
+generate_messages(DEPENDENCIES std_msgs)
 
 # add package modules path, not needed in dependend packages
 list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
@@ -32,11 +35,10 @@ include_directories(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES velocity_planner
- CATKIN_DEPENDS message_runtime
+ CATKIN_DEPENDS message_runtime roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
 
-find_package(catkin REQUIRED COMPONENTS message_generation)
 
 add_executable(psoc_driver_node
                       src/psoc_node.cpp
