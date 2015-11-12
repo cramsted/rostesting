@@ -59,7 +59,20 @@ void Psoc::receive(const uint8_t *bytes, ssize_t nbytes)
 
 void Psoc::send(uint8_t lw, uint8_t rw, uint8_t pan, uint8_t tilt,uint8_t camnum)
 {
-  
+  uint8_t array[11];
+  array[0]=0xEA;
+  array[1]=0xE3;
+  array[2]=lw&0xff;
+  array[3]=lw>>8;
+  array[4]=rw&0xff;
+  array[5]=rw>>8;
+  array[6]=pan&0xff;
+  array[7]=pan>>8;
+  array[8]=tilt&0xff;
+  array[9]=tilt>>8;
+  array[10]=camnum;
+
+  link->send_bytes(array,11);
 }
 
 void Psoc::terminate_cb() 
