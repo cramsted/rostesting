@@ -5,7 +5,6 @@
 #include <conn_interface.h>
 #include <string>
 #include <psoc_driver/Drive.h>
-#include <psoc_driver/Drive_2.h>
 #include <stdint.h>
 
 namespace psoc {
@@ -26,7 +25,7 @@ public:
     bool received;
     std::stringstream out;
     /* void send(std::string command); */
-    void send(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t);
+    void send(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t);
 
 private:
     ros::NodeHandle nh_;
@@ -36,7 +35,7 @@ private:
     ros::Publisher data_publisher_;
 
     void commandCallback(const std_msgs::String& command_msg);
-    void commandCallback_2(const psoc_driver::Drive_2& command_msg);
+    void commandCallback_2(const psoc_driver::Drive& command_msg);
 
     std::string serialName_;
     int baudrate_;

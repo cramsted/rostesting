@@ -57,9 +57,9 @@ void Psoc::receive(const uint8_t *bytes, ssize_t nbytes)
 //     link->send_bytes((uint8_t*)data, length);
 // }
 
-void Psoc::send(uint8_t lwlo, uint8_t lwhi, uint8_t rwlo, uint8_t rwhi, uint8_t panlo, uint8_t panhi, uint8_t tiltlo, uint8_t tilthi, uint8_t camnum)
+void Psoc::send(uint8_t lw, uint8_t rw, uint8_t pan, uint8_t tilt,uint8_t camnum)
 {
-
+  
 }
 
 void Psoc::terminate_cb() 
@@ -71,7 +71,8 @@ void Psoc::terminate_cb()
 //     this->send(command_msg.data);
 // }
 
-void Psoc::commandCallback_2(const psoc_driver::Drive_2 &command_msg)
+void Psoc::commandCallback_2(const psoc_driver::Drive &command_msg)
 {
-  this->send(command_msg.lw&0xff,(command_msg.lw>>8)&0xff,command_msg.rw&0xff,(command_msg.rw>>8)&0xff,command_msg.pan&0xff,(command_msg.pan>>8)&0xff,command_msg.tilt&0xff,(command_msg.tilt>>8)&0xff,command_msg.camnum);
+  this->send(command_msg.lw,command_msg.rw,command_msg.pan,command_msg.tilt,command_msg.camnum)
+  // this->send(command_msg.lw&0xff,(command_msg.lw>>8)&0xff,command_msg.rw&0xff,(command_msg.rw>>8)&0xff,command_msg.pan&0xff,(command_msg.pan>>8)&0xff,command_msg.tilt&0xff,(command_msg.tilt>>8)&0xff,command_msg.camnum);
 }

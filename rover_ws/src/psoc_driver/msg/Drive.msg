@@ -1,9 +1,5 @@
-uint8 lwlo
-uint8 lwhi
-uint8 rwlo
-uint8 rwhi
-uint8 panlo
-uint8 panhi
-uint8 tiltlo
-uint8 tilthi
+uint8 lw
+uint8 rw
+uint8 pan
+uint8 tilt
 uint8 camnum
