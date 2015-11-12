@@ -73,6 +73,6 @@ void Psoc::terminate_cb()
 
 void Psoc::commandCallback_2(const psoc_driver::Drive &command_msg)
 {
-  this->send(command_msg.lw,command_msg.rw,command_msg.pan,command_msg.tilt,command_msg.camnum)
+  this->send(command_msg.lw,command_msg.rw,command_msg.pan,command_msg.tilt,command_msg.camnum);
   // this->send(command_msg.lw&0xff,(command_msg.lw>>8)&0xff,command_msg.rw&0xff,(command_msg.rw>>8)&0xff,command_msg.pan&0xff,(command_msg.pan>>8)&0xff,command_msg.tilt&0xff,(command_msg.tilt>>8)&0xff,command_msg.camnum);
 }

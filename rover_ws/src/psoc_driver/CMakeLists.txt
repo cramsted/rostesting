@@ -15,7 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(Boost REQUIRED COMPONENTS system)
 find_package(Threads)
 
-add_message_files(FILES Drive.msg Drive_2.msg)
+add_message_files(FILES Drive.msg)
 
 generate_messages(DEPENDENCIES std_msgs)
 
@@ -35,7 +35,7 @@ include_directories(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES velocity_planner
- CATKIN_DEPENDS message_runtime roscpp rospy std_msgs
+ CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
 #  DEPENDS system_lib
 )
 
