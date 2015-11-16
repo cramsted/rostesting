@@ -21,6 +21,8 @@ int main(int argc, char** argv)
     ros::Publisher drive_command_pub = nh.advertise<psoc_driver::Drive>("drive_command",1);
     ros::Subscriber joy_command = nh.subscribe("joy",1,joyCallback);
 
+    ros::Rate r(10); // 10 hz
+
     while (ros::ok())
     {
         ros::spinOnce(); // spin let ros sit there and run it's own while loop to listen to all of it's subscribers and wait
@@ -34,6 +36,8 @@ int main(int argc, char** argv)
 
             drive_command_pub.publish(dr_msgs);
         }
+
+        r.sleep();
     }
 
 }
