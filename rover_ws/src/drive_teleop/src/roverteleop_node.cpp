@@ -26,11 +26,14 @@ int main(int argc, char** argv)
         ros::spinOnce(); // spin let ros sit there and run it's own while loop to listen to all of it's subscribers and wait
             // spinOnce means "check all of my subscribers, and do something if there's a message. Otherwise, I'm going to keep doing stuff"
 
-        psoc_driver::Drive dr_msgs;
-        dr_msgs.lw = joy_msgs.axes[1]*500 + 1500;  // positive
-        dr_msgs.rw = joy_msgs.axes[4]*-500 + 1500; // negative
+        if(joy_msgs.axes.size() >= 4)
+        {
+            psoc_driver::Drive dr_msgs;
+            dr_msgs.lw = joy_msgs.axes[1]*500 + 1500;  // positive
+            dr_msgs.rw = joy_msgs.axes[4]*-500 + 1500; // negative
 
-        drive_command_pub.publish(dr_msgs);
+            drive_command_pub.publish(dr_msgs);
+        }
     }
 
 }
