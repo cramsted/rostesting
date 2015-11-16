@@ -4,6 +4,7 @@ project(vision)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
+  cv_bridge
 )
 find_package(OpenCV REQUIRED)
 catkin_package(
