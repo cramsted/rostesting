@@ -1,5 +1,5 @@
-uint8 lw
-uint8 rw
-uint8 pan
-uint8 tilt
-uint8 camnum
+uint16 lw
+uint16 rw
+uint16 pan
+uint16 tilt
+uint16 camnum
