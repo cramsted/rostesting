@@ -2,4 +2,4 @@ uint16 lw
 uint16 rw
 uint16 pan
 uint16 tilt
-uint16 camnum
+uint8 camnum
