@@ -1,27 +1,57 @@
-#include "ros/ros.h"
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <cv_bridge/cv_bridge.h>
+/*
+ * \file vision.cpp
+ * \author Gary Ellingson
+ *
+ * \brief This is the implementation file for the Vision class
+ */
 
-int main(int argc, char **argv)
+#include "vision.h"
+#include <sensor_msgs/image_encodings.h>
+
+namespace vision
 {
-    cv::Mat frame;
-    cv::VideoCapture video(0); // get a camera object
 
-    int key = 0;
-//    cv::namedWindow("Image window", CV_WINDOW_AUTOSIZE);
-//    cv::namedWindow("Image window 2", CV_WINDOW_AUTOSIZE);
-    ros::init(argc, argv, "keyframe_devide");
-    ros::NodeHandle n;
+Vision::Vision():
+    nh_(ros::NodeHandle()),
+    nh_private_(ros::NodeHandle("~"))
+{
+    nh_private_.param<int>("camera1", device1, 0);
+    nh_private_.param<int>("camera2", device2, 1);
 
-    while(key != 'q')
-    {
-        key = cv::waitKey(1);
-        video >> frame;
+    if(!v1.open(device1) )// || !v2.open(device2))
+        ROS_ERROR("could not open one or both cameras");
 
-        imshow("output", frame);
-    }
-    //ros::spin();
+    image_publisher_ = nh_.advertise<sensor_msgs::Image>("image", 1);
 
-    return 0;
 }
+
+Vision::~Vision()
+{
+    v1.release(); v2.release();
+}
+
+void Vision::publish_image()
+{
+//    sensor_msgs::Image image;
+    cv::Mat frame1, frame2;
+
+    cv_bridge::CvImage cv_img;
+
+    if(v1.isOpened())
+    {
+        v1 >> frame1;
+        cv_img.image = frame1;
+        cv_img.encoding = sensor_msgs::image_encodings::BGR8;
+        image_publisher_.publish(cv_img.toImageMsg());
+    }
+    else if(v2.isOpened())
+    {
+        v2 >> frame2;
+        cv_img.image = frame2;
+        cv_img.encoding = sensor_msgs::image_encodings::BGR8;
+        image_publisher_.publish(cv_img.toImageMsg());
+    }
+}
+
+} //namespace vision
+
