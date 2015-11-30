@@ -84,7 +84,7 @@ void Psoc::terminate_cb()
 //     this->send(command_msg.data);
 // }
 
-void Psoc::commandCallback_2(const psoc_driver::Drive &command_msg)
+void Psoc::commandCallback_2(const rover_msgs::Drive &command_msg)
 {
   this->send(command_msg.lw,command_msg.rw,command_msg.pan,command_msg.tilt,command_msg.camnum);
   // this->send(command_msg.lw&0xff,(command_msg.lw>>8)&0xff,command_msg.rw&0xff,(command_msg.rw>>8)&0xff,command_msg.pan&0xff,(command_msg.pan>>8)&0xff,command_msg.tilt&0xff,(command_msg.tilt>>8)&0xff,command_msg.camnum);

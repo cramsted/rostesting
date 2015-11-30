@@ -4,7 +4,7 @@
 #include <std_msgs/String.h>
 #include <conn_interface.h>
 #include <string>
-#include <psoc_driver/Drive.h>
+#include <rover_msgs/Drive.h>
 #include <stdint.h>
 
 namespace psoc {
@@ -35,7 +35,7 @@ private:
     ros::Publisher data_publisher_;
 
     void commandCallback(const std_msgs::String& command_msg);
-    void commandCallback_2(const psoc_driver::Drive& command_msg);
+    void commandCallback_2(const rover_msgs::Drive& command_msg);
 
     std::string serialName_;
     int baudrate_;
