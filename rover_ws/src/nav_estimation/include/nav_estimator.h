@@ -68,7 +68,7 @@ private:
     Eigen::VectorXf C_p;  // 7
     Eigen::VectorXf L_p;  // 7
 
-    void prodiction(float Ts);
+    void prediction(float Ts);
     void update();
 };
 } //end namespace

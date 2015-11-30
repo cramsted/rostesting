@@ -95,10 +95,10 @@ void NavEstimator::imuCallback(const sensor_msgs::Imu &msg)
     thetahat = theta;
     psihat = psi;
 
-    prodiction(Ts);
+    prediction(Ts);
 }
 
-void NavEstimator::prodiction(float Ts)
+void NavEstimator::prediction(float Ts)
 {
     float psidot, tmp, Vgdot;
     if(fabsf(xhat_p(2)) < 0.01f)
