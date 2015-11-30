@@ -8,8 +8,9 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   sensor_msgs
   rover_msgs
+  cmake_modules
 )
-
+find_package(Eigen REQUIRED)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -115,6 +116,7 @@ catkin_package(
 include_directories(include)
 include_directories(
   ${catkin_INCLUDE_DIRS}
+  ${EIGEN_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
