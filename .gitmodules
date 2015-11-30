@@ -1,0 +1,3 @@
+[submodule "rover_ws/src/razor_imu_9dof"]
+	path = rover_ws/src/razor_imu_9dof
+	url = https://github.com/KristofRobot/razor_imu_9dof.git
