@@ -7,6 +7,7 @@
 #include <ros/ros.h>
 #include <sensor_msgs/NavSatFix.h>
 #include <sensor_msgs/Imu.h>
+#include <geometry_msgs/TwistStamped.h>
 #include "rover_msgs/NavState.h"
 #include "rover_msgs/Drive.h"
 
@@ -26,17 +27,20 @@ private:
     ros::NodeHandle nh_;
     ros::NodeHandle nh_private_;
     ros::Subscriber gps_subscriber_;
+    ros::Subscriber gps_vel_subscriber_;
     ros::Subscriber imu_subscriber_;
     ros::Subscriber drive_command_subscriber_;
     ros::Publisher state_publisher_;
 
     std::string gps_topic_;
+    std::string gps_vel_topic_;
     std::string imu_topic_;
     std::string drive_command_topic_;
     std::string state_topic_;
 
     //callbacks
     void gpsCallback(const sensor_msgs::NavSatFix &msg);
+    void gpsVelCallback(const geometry_msgs::TwistStamped &msg);
     void imuCallback(const sensor_msgs::Imu &msg);
     void driveCallback(const rover_msgs::Drive &msg);
 
@@ -79,6 +83,7 @@ private:
 
     struct input_s{
         bool gps_vel_new;
+        bool gps_new;
         float gps_n;
         float gps_e;
         float gps_h;

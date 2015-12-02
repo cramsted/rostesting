@@ -7,6 +7,7 @@ project(nav_estimation)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   sensor_msgs
+  geometry_msgs
   rover_msgs
   cmake_modules
 )
