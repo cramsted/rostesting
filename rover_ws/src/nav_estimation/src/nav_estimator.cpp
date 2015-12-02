@@ -113,7 +113,9 @@ void NavEstimator::imuCallback(const sensor_msgs::Imu &msg)
         psihat = psi;
 
         prediction(Ts);
-        publish();
+
+        if(gps_initialized_)
+            publish();
     }
 }
 
