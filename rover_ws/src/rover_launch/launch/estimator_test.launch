@@ -1,0 +1,15 @@
+<launch>
+  
+  <!--GPS-->
+  <node name="gps_node"  pkg="nmea_navsat_driver"   type="nmea_serial_driver" output="screen" args="_port:=/dev/ttyUSB1 _baud:=4800"/>
+
+  <!--IMU-->
+  <arg name="razor_config_file" default="$(find rover_launch)/config/my_razor.yaml"/>
+  <node pkg="razor_imu_9dof" type="imu_node.py" name="imu_node" output="screen">
+    <rosparam file="$(arg razor_config_file)" command="load"/>
+  </node>
+
+  <!--Navigation Estimator-->
+  <node name="nav_estimator" pkg="nav_estimation" type="nav_estimation_node" output="screen"/>
+
+</launch>
