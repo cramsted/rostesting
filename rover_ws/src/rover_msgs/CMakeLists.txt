@@ -44,6 +44,7 @@ find_package(catkin REQUIRED std_msgs message_generation)
    FILES
    Drive.msg
    NavState.msg
+   NavGoal.msg
  )
 
 ## Generate services in the 'srv' folder
