@@ -1,0 +1,18 @@
+<launch>
+
+  <!--vision-->
+  <arg name="camera_file_path" default="$(find rover_launch)/config"/>
+  <node pkg="vision" type="vision_node" name="vision_node" output="screen">
+    <param name="useStereo" type="boolean" value="true" />
+    <param name="filePath" type="string" value="$(arg camera_file_path)" />
+  </node>
+
+  <!--calibrate-->
+  <node pkg="camera_calibration" type="cameracalibrator.py" name="calibrate_node" output="screen" args="--size 9x7 --square 0.02355">
+     <remap from="right" to="/right_image" />
+     <remap from="left" to="/left_image" />
+     <remap from="right_camera" to="/right_camera" />
+     <remap from="left_camera" to="/left_camera" />
+  </node>
+
+</launch>

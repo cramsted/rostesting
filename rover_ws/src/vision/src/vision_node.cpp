@@ -29,12 +29,11 @@ int main(int argc, char **argv)
     ros::Rate loop_rate(rate);
     while(ros::ok())
     {
-    ros::spinOnce();
-    //vis.p();
-    vis.publish_image();
+        ros::spinOnce();
+        vis.publish_image();
 
-    loop_rate.sleep();
-    //ROS_WARN_STREAM("Spinning");
+        loop_rate.sleep();
+        //ROS_WARN_STREAM("Spinning");
     }
 
 //    ros::spin();
