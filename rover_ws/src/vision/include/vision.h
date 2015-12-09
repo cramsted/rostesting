@@ -17,6 +17,7 @@ public:
     ~Vision();
 
     void publish_image();
+    void publish_camera_info();
 
 protected:
     // ros stuff for this node
@@ -32,7 +33,6 @@ protected:
 
     //services
     ros::ServiceServer srv_request_set_cam_info_;
-
     ros::ServiceServer srv_request_set_left_cam_info_;
 
     bool requestSetCamInfoService(sensor_msgs::SetCameraInfo::Request &req, sensor_msgs::SetCameraInfo::Response &res);
