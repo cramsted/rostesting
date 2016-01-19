@@ -26,3 +26,15 @@ All the steps are the same, except for the rosrun commands on BBB
 
 run: rosrun psoc_arm psoc_arm_node
 run: rosrun arm_teleop arm_teleop_node
+
+
+-----------------------------------------------------------------------
+Here are the steps for adding startup commands
+
+[1]ssh into BBB
+[2]run: sudo nano /etc/init.d/rosstartup.sh
+[3]edit this .sh file and add any commands that you
+   would like run when the BBB starts up
+(The next steps only need to happen once)
+[4]run: chmod +x /etc/init.d/rosstartup.sh
+[5]run: update-rc.d rosstartup.sh defaults 99
