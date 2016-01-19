@@ -31,7 +31,7 @@ int main(int argc, char** argv)
         if(joy_msgs.axes.size() >= 4)
         {
             rover_msgs::Drive dr_msgs;
-            dr_msgs.lw = joy_msgs.axes[1]*500 + 1500;  // positive
+            dr_msgs.lw = joy_msgs.axes[1]*-500 + 1500;  // positive
             dr_msgs.rw = joy_msgs.axes[4]*-500 + 1500; // negative
 
             drive_command_pub.publish(dr_msgs);
