@@ -33,7 +33,7 @@ Psoc::Psoc() :
     command_subscriber_ = nh_.subscribe("drive_command", 1, &Psoc::commandCallback_2, this);
 
     // publications
-    data_publisher_ = nh_.advertise<std_msgs::String>("psoc_data", 1);
+    data_publisher_ = nh_.advertise<rover_msgs::SciFeedback>("science_data", 1);
 }
 
 void Psoc::receive(const uint8_t *bytes, ssize_t nbytes)
@@ -42,12 +42,14 @@ void Psoc::receive(const uint8_t *bytes, ssize_t nbytes)
     received = true;
     char* output = new char[nbytes];
     memcpy(output, bytes, nbytes);
-    this->out << std::string(output);
 
-// todo: we will need to do some parsing here but I think we'll leave that up to marshal
-   // std_msgs::String result;
-   // result.data = out.str();
-   // data_publisher_.publish(result);
+    if(nbytes == 5 && true)//output[0] == something) //todo: figure out the start byte
+    {
+        rover_msgs::SciFeedback msg;
+        msg.temp = (output[1] << 8 | output[2]);
+        msg.humidity = (output[3] << 8 | output[4]);
+        data_publisher_.publish(msg);
+    }
 }
 
 // void Psoc::send(std::string command)
