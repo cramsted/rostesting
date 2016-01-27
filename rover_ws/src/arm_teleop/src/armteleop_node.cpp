@@ -14,7 +14,7 @@ void joyCallback(const sensor_msgs::Joy& msgs)
 
 int main(int argc, char** argv)
 {
-    ros::init(argc, argv, "drive_teleop_node");
+    ros::init(argc, argv, "arm_teleop_node");
     ros::NodeHandle nh;
     ros::NodeHandle nh_private("~");
 

@@ -5,6 +5,7 @@
 #include <conn_interface.h>
 #include <string>
 #include <rover_msgs/Drive.h>
+#include <rover_msgs/SciFeedback.h>
 #include <stdint.h>
 
 namespace psoc {
